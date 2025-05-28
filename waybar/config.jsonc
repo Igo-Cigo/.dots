@@ -150,6 +150,7 @@
     "format-icons": ["", "", "", "", "", "", "", "", ""]
   },
   "battery": {
+    "interval": 3,
     "states": {
       "good": 95,
       "warning": 30,
