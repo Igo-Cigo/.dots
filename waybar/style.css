@@ -1,0 +1,162 @@
+    * {
+    border: 0;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font Propo", "CaskaydiaMono Nerd Font Mono", "Roboto", "Helvetica", "Arial", "sans-serif";
+    font-size: 13px;
+    min-height: 0;
+    /*padding: 2px;*/
+}
+
+window#waybar {
+    background: rgba(0, 0, 0, 0);
+  color: #ffffff;
+    transition: background-color 0.5s;
+}
+
+window#waybar.hidden {
+  opacity: 0.1;
+}
+
+button {
+  border-radius: 3px;
+  background-color: transparent;
+}
+
+tooltip {
+  background: rgba(43, 48, 59, 0.5);
+  border: 1px solid rgba(100, 114, 125, 0.5);
+}
+tooltip label {
+  color: white;
+}
+
+#workspaces {
+  margin-top: 6px;
+  background-color: rgba(0,0,0,0.6);
+  border-radius: 6px;
+}
+
+#workspaces button {
+  color: #ffffff;
+}
+
+#workspaces button.active {
+    background: #64727D;
+      transition-duration: .2s;
+  transition-property: background-color;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#workspaces button:hover {
+  border-color: rgba(0,0,0,0);
+  box-shadow: none;
+  text-shadow: none;
+  background: none;
+  background-color: rgba(150,150,150, 0.15);
+}
+
+#mode {
+    background: #64727D;
+    border-bottom: 3px solid white;
+}
+
+#clock {
+    background-color: #64727D;
+}
+
+#battery {
+    background-color: rgba(0,0,0,0.6);
+    color: #ffffff;
+}
+
+#clock,#battery,#cpu,#memory,#disk,#temperature,#backlight,#bluetooth,
+#network,#pulseaudio,#tray,#mode,#idle_inhibitor,#window,#custom-power,#keyboard-state,#power-profiles-daemon {
+  margin-top: 6px;
+  background-color: rgba(0,0,0,0.6);
+  padding: 0px 5px;
+  border-radius: 6px;
+}
+
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 8px;
+}
+
+#battery.charging, #battery.plugged {
+  background-color: rgba(0,0,0,0.6);
+  padding: 0px 5px;
+  border-radius: 6px;
+  color: white;
+}
+
+@keyframes blink {
+    to {
+        background-color: rgba(0,0,0,0.6);
+        color: red;
+        padding: 0px 5px;
+        border-radius: 6px;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: rgba(0,0,0,0.6);
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    padding: 0px 5px;
+    border-radius: 6px;
+}
+
+#custom-power {
+    background-color: rgba(0,0,0,0.6);
+    padding: 0px 5px;
+    border-radius: 6px;
+    margin-top: 6px;
+    margin-right: 6px;
+}
+
+label:focus {
+  background-color: rgba(0,0,0,0.6);
+}
+
+window#waybar.empty #window {
+  transition-duration: 0;
+  background:none;
+}
+
+/* --- Power Menu GTK style mimic --- */
+menu, .menu, GtkMenu {
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 6px;
+    border: 1px solid rgba(100, 114, 125, 0.5);
+    padding: 4px 0;
+    transition-duration: .5s;
+    transition-property: background-color;
+}
+
+menuitem, .menuitem, GtkMenuItem {
+    color: #ffffff;
+    font-family: "JetBrainsMono Nerd Font Propo", "CaskaydiaMono Nerd Font Mono", "Roboto", "Helvetica", "Arial", "sans-serif";
+    font-size: 13px;
+    padding: 4px 16px;
+    border-radius: 3px;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+menuitem:hover, .menuitem:hover, GtkMenuItem:hover,
+menuitem:selected, .menuitem:selected, GtkMenuItem:selected {
+    background-color: rgba(150,150,150, 0.15);
+    color: #ffffff;
+}
+
+GtkSeparatorMenuItem, .separator {
+    background-color: rgba(100, 114, 125, 0.5);
+    min-height: 1px;
+    margin: 4px 0;
+}
