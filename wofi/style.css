@@ -1,0 +1,95 @@
+@import '.config/wofi/catppuccin.css';
+
+* {
+    font-family: "JetBrainsMono Nerd Font Propo", "CaskaydiaMono Nerd Font Mono", "Roboto", "Helvetica", "Arial", "sans-serif";
+    font-size: 13px;
+    min-height: 0;
+ }
+
+/* Window */
+window {
+    margin: 0px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(24, 24, 37, 0.92); /* similar to waybar */
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.25);
+}
+
+/* Inner Box */
+#inner-box {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: rgba(24, 24, 37, 0.92);
+}
+
+/* Outer Box */
+#outer-box {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    background-color: rgba(24, 24, 37, 0.92);
+    border-radius: 6px;
+}
+
+/* Scroll */
+#scroll {
+    margin: 0px;
+    padding: 10px;
+    border: none;
+    background: transparent;
+}
+
+/* Input */
+#input {
+    margin: 5px;
+    padding: 8px 12px;
+    border: none;
+    color: @accent;
+    background-color: rgba(24, 24, 37, 0.92);
+    border: 2px solid @accent;
+    border-radius: 6px;
+    transition: border-color 0.3s;
+}
+
+#input:focus {
+    border-color: #b4befe;
+    outline: none;
+}
+
+/* Text */
+#text {
+    margin: 5px;
+    padding: 8px 12px;
+    border: none;
+    color: @txt;
+    background: transparent;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+}
+
+/* Entry */
+#entry {
+    border-radius: 3px;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+/* Selected Entry */
+#entry:selected {
+    background-color: rgba(150,150,150, 0.15);
+    outline: none;
+}
+
+#entry:selected #text {
+    color: #ffffff;
+}
+
+#entry:hover {
+    background-color: rgba(150,150,150, 0.10);
+}
+
+image {
+    margin-left: 10px;
+}
