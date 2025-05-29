@@ -1,95 +1,122 @@
-@import '.config/wofi/catppuccin.css';
-
-* {
+/* General window styling */
+window {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 6px;
+    /*border: 1px solid rgba(100, 114, 125, 0.5);*/
+    border: none;
     font-family: "JetBrainsMono Nerd Font Propo", "CaskaydiaMono Nerd Font Mono", "Roboto", "Helvetica", "Arial", "sans-serif";
     font-size: 13px;
-    min-height: 0;
- }
-
-/* Window */
-window {
-    margin: 0px;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: rgba(24, 24, 37, 0.92); /* similar to waybar */
-    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.25);
+    color: #ffffff;
+    transition: background-color 0.5s;
+    padding: 8px;
 }
 
-/* Inner Box */
-#inner-box {
-    margin: 5px;
-    padding: 10px;
-    border: none;
-    border-radius: 6px;
-    background-color: rgba(24, 24, 37, 0.92);
-}
-
-/* Outer Box */
-#outer-box {
-    margin: 5px;
-    padding: 10px;
-    border: none;
-    background-color: rgba(24, 24, 37, 0.92);
-    border-radius: 6px;
-}
-
-/* Scroll */
-#scroll {
-    margin: 0px;
-    padding: 10px;
-    border: none;
-    background: transparent;
-}
-
-/* Input */
+/* Search box styling */
 #input {
-    margin: 5px;
-    padding: 8px 12px;
+    background-color: rgba(0,0,0,0.6);
+    color: #ffffff;
     border: none;
-    color: @accent;
-    background-color: rgba(24, 24, 37, 0.92);
-    border: 2px solid @accent;
     border-radius: 6px;
-    transition: border-color 0.3s;
+    padding: 6px 10px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    transition: background-color 0.5s;
 }
 
+/* Add this for white border on focus */
 #input:focus {
-    border-color: #b4befe;
+    border: 2px solid #64727D;
     outline: none;
+    box-shadow: none;
 }
 
-/* Text */
-#text {
-    margin: 5px;
-    padding: 8px 12px;
-    border: none;
-    color: @txt;
-    background: transparent;
-    border-radius: 3px;
-    transition: background-color 0.3s;
-}
-
-/* Entry */
+/* Entry list styling */
 #entry {
-    border-radius: 3px;
     background-color: transparent;
-    transition: background-color 0.3s;
+    color: #ffffff;
+    border-radius: 3px;
+    padding: 6px 16px;
+    margin: 2px 0;
 }
 
-/* Selected Entry */
+/* Selected entry styling */
 #entry:selected {
-    background-color: rgba(150,150,150, 0.15);
-    outline: none;
+    background-color: #64727D;
+    color: #ffffff;
+    transition-duration: .2s;
+    transition-property: background-color;
 }
 
-#entry:selected #text {
+/* Entry hover (simulate with focus for wofi) */
+#entry:focus {
+    background-color: rgba(150,150,150, 0.15);
     color: #ffffff;
 }
 
-#entry:hover {
-    background-color: rgba(150,150,150, 0.10);
+/* Remove dashed border on select/focus */
+#entry:selected, #entry:focus {
+    outline: none;
+    box-shadow: none;
 }
 
-image {
-    margin-left: 10px;
+#expander-box {
+    background-color: inherit;
+    border-radius: 6px;
+    padding: 8px;
+    margin-top: 8px;
+}
+
+/* Scrollbar styling */
+window scrollbar {
+    background-color: rgba(20, 20, 20, 0.7);
+    border: none;
+    min-width: 14px;
+    min-height: 14px;
+    transition: background-color 0.12s;
+}
+window scrollbar slider {
+    background-color: rgba(100, 114, 125, 0.5);
+    border-radius: 6px;
+    border: none;
+    min-width: 12px;
+    min-height: 12px;
+    transition: background-color 0.12s;
+}
+
+/* Message styling (e.g., "No results") */
+#message {
+    color: #ffffff;
+    background: rgba(43, 48, 59, 0.5);
+    border: 1px solid rgba(100, 114, 125, 0.5);
+    border-radius: 6px;
+    padding: 6px 10px;
+    margin: 8px 0;
+}
+
+/* Optional: mimic urgent/active states if you use them */
+#entry.urgent {
+    background-color: #eb4d4b;
+    color: #ffffff;
+}
+
+#entry.active {
+    background-color: #64727D;
+    color: #ffffff;
+}
+
+/* Optional: mimic blinking for critical (not standard in wofi) */
+@keyframes blink {
+    to {
+        background-color: rgba(0,0,0,0.6);
+        color: red;
+    }
+}
+#entry.critical {
+    background-color: rgba(0,0,0,0.6);
+    color: #ffffff;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }
