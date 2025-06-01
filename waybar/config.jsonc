@@ -48,9 +48,11 @@
   },
 
   "custom/mpris": {
-    "exec": "waybar-mpris  --play  --pause ",
+    "exec": "waybar-mpris --play  --pause ",
     "return-type": "json",
     "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl previous",
     "max-length": 25
   },
 
