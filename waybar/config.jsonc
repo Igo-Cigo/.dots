@@ -64,11 +64,17 @@
   },
 
   "hyprland/window": {
-    "format": "{class}",
+    "format": "{title}",
+    "icon": true,
+    "icon-size": 13,
     "format-empty": "",
     "background": "rgba(0,0,0,0.6)",
     "background-empty": "rgba(0,0,0,0)",
-    "max-length": 12
+    "max-length": 20,
+    "rewrite": {
+      "(.*) - Brave": "Brave",
+      "(.*) - Visual Studio Code": "VSCode"
+    }
   },
 
   "keyboard-state": {
